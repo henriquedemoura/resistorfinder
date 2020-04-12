@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block navbar %}
+  <a class="nav-item nav-link" href="/">Resistor</a>
+  <a class="nav-item nav-link active" href="/about">About</a>
+{% endblock %}
+
+{% block body_main %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Hello, world!</h1>
+    <p class="lead">ResistorFinder is a simple APP I wrote to fulfill my need of guessing the colors of a resistor. 
+                    It was also my final project for Harvard's CS50x class of 2020. </p>
+    <p class="lead"> This app was built with flask (a micro web framework written in Python), HTML and javascript.</p>
+    <hr class="my-4">
+    <p class="lead"> If you would like to discuss it, feel free to add me on <a href="https://www.linkedin.com/in/businesshenrique/" target="_blank">LinkedIn</a></p>
+    <hr class="my-4">
+    <p class="lead"> And if you want to know more about resistors, <a href="https://en.wikipedia.org/wiki/Resistor" target="_blank">take a look here</a>. </p>
+</div>
+
+{% endblock %}

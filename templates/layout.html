@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <!-- Title of the Webpage-->
+    <title> ResistorFinder </title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light align-center">
+        <a class="navbar-brand" href="/">ResistorFinder</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            {% block navbar %}
+            {% endblock %}
+          </div>
+        </div>
+      </nav>
+        
+        <div class=""></div>
+
+{% block body_main %}
+
+{% endblock %}
+
+  </body>
+
+  <script src="{{url_for('static', filename='resistor.js')}}"></script>
+  <script src="{{url_for('static', filename='findByColor.js')}}"></script>
+  <script src="{{url_for('static', filename='findByValue.js')}}"></script>
+
+</html>

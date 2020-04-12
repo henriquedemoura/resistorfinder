@@ -1,0 +1,156 @@
+{% extends "layout.html" %}
+
+{% block navbar %}
+  <a class="nav-item nav-link active" href="/">Resistor</a>
+  <a class="nav-item nav-link" href="/about">About</a>
+{% endblock %}
+
+{% block body_main %}
+
+<div class="container">
+
+    <!-- Input Line: Findind Color -->
+    <div class='row'>
+      <h1 class="display-5 text-center">Findind Colors</h1>
+    </div>
+
+    <div class="row">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-dark" type="button" id="btn_by_value" onclick="find_by_value()">Find</button>
+            </div>
+            <input type="text" class="form-control" placeholder="Insert value here" aria-describedby="basic-addon1" id='input_by_value'>
+            <div class="input-group-append">
+                <span class="input-group-text"> Ω </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Output Line: Findind Color -->
+
+    <p class="row justify-content-center" id='msg_4band'> Considering a 4 band color resistor </p>
+
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-horizontal w-max" id="4bandresistor">
+          <li class="list-group-item" id='color1_4band'>Color #1</li>
+          <li class="list-group-item" id='color2_4band'>Color #2</li>
+          <li class="list-group-item" id='color3_4band'>Color #3</li>
+          <li class="list-group-item">Color #4</li>
+        </ul>
+    </div>
+
+    <p class="row justify-content-center mt-4" id='msg_5band'> Considering a 5 band color resistor </p>
+
+    <div class="row justify-content-center">
+        <ul class="list-group list-group-horizontal w-max" id="5bandresistor">
+          <li class="list-group-item" id='color1_5band'>Color #1</li>
+          <li class="list-group-item" id='color2_5band'>Color #2</li>
+          <li class="list-group-item" id='color3_5band'>Color #3</li>
+          <li class="list-group-item" id='color4_5band'>Color #4</li>
+          <li class="list-group-item">Color #5</li>
+        </ul>
+    </div>
+
+    <!-- Input Line: Findind Value -->
+
+    <div class="row">
+      <h1 class="display-5 text-center">Findind Value</h1>
+    </div>
+
+    <div class="row">
+        
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-dark" type="button" id="btn_by_color" onclick='changebyvalue()'>Find</button>
+            </div>
+
+            <select class="custom-select" id="color1" onchange='change_bgc()'>
+              <option selected>#1</option>
+              <option value="0" style='color:white; background-color: black;'>  Black   </option>
+              <option value="1" style='color:black; background-color: brown;'>  Brown   </option>
+              <option value="2" style='color:black; background-color: red;'>    Red     </option>
+              <option value="3" style='color:black; background-color: orange;'> Orange  </option>
+              <option value="4" style='color:black; background-color: yellow;'> Yellow  </option>
+              <option value="5" style='color:black; background-color: green;'>  Green   </option>
+              <option value="6" style='color:black; background-color: blue;'>   Blue    </option>
+              <option value="7" style='color:black; background-color: violet;'> Violet  </option>
+              <option value="8" style='color:black; background-color: grey;'>   Grey    </option>
+              <option value="9" style='color:black; background-color: white;'>  White   </option>
+            </select>
+
+            <select class="custom-select" id="color2" onchange='change_bgc()'>
+              <option selected>#2</option>
+              <option value="0" style='color:white; background-color: black;'>  Black   </option>
+              <option value="1" style='color:black; background-color: brown;'>  Brown   </option>
+              <option value="2" style='color:black; background-color: red;'>    Red     </option>
+              <option value="3" style='color:black; background-color: orange;'> Orange  </option>
+              <option value="4" style='color:black; background-color: yellow;'> Yellow  </option>
+              <option value="5" style='color:black; background-color: green;'>  Green   </option>
+              <option value="6" style='color:black; background-color: blue;'>   Blue    </option>
+              <option value="7" style='color:black; background-color: violet;'> Violet  </option>
+              <option value="8" style='color:black; background-color: grey;'>   Grey    </option>
+              <option value="9" style='color:black; background-color: white;'>  White   </option>
+              </select>
+
+            <select class="custom-select" id="color3" onchange='change_bgc()'>
+            <option selected>#3</option>
+              <option value="0" style='color:white; background-color: black;'>  Black   </option>
+              <option value="1" style='color:black; background-color: brown;'>  Brown   </option>
+              <option value="2" style='color:black; background-color: red;'>    Red     </option>
+              <option value="3" style='color:black; background-color: orange;'> Orange  </option>
+              <option value="4" style='color:black; background-color: yellow;'> Yellow  </option>
+              <option value="5" style='color:black; background-color: green;'>  Green   </option>
+              <option value="6" style='color:black; background-color: blue;'>   Blue    </option>
+              <option value="7" style='color:black; background-color: violet;'> Violet  </option>
+              <option value="8" style='color:black; background-color: grey;'>   Grey    </option>
+              <option value="9" style='color:black; background-color: white;'>  White   </option>
+            </select>
+
+            <select class="custom-select" id="color4" onchange='change_bgc()'>
+              <option selected>#4</option>
+                <option value="0" style='color:white; background-color: black;'>  Black   </option>
+                <option value="1" style='color:black; background-color: brown;'>  Brown   </option>
+                <option value="2" style='color:black; background-color: red;'>    Red     </option>
+                <option value="3" style='color:black; background-color: orange;'> Orange  </option>
+                <option value="4" style='color:black; background-color: yellow;'> Yellow  </option>
+                <option value="5" style='color:black; background-color: green;'>  Green   </option>
+                <option value="6" style='color:black; background-color: blue;'>   Blue    </option>
+                <option value="7" style='color:black; background-color: violet;'> Violet  </option>
+                <option value="8" style='color:black; background-color: grey;'>   Grey    </option>
+                <option value="9" style='color:black; background-color: white;'>  White   </option>
+                <option value="10" style='color:black; background-color: gold;'>  Gold    </option>
+                <option value="11" style='color:black; background-color: silver;'>Silver  </option>
+            </select>
+
+            <select class="custom-select" id="color5" onchange='change_bgc()'>
+              <option selected>#5</option>
+                <option value="1" style='color:black; background-color: brown;'>  Brown   </option>
+                <option value="2" style='color:black; background-color: red;'>    Red     </option>
+                <option value="5" style='color:black; background-color: green;'>  Green   </option>
+                <option value="6" style='color:black; background-color: blue;'>   Blue    </option>
+                <option value="7" style='color:black; background-color: violet;'> Violet  </option>
+                <option value="8" style='color:black; background-color: grey;'>   Grey    </option>
+                <option value="10" style='color:black; background-color: gold;'>  Gold    </option>
+                <option value="11" style='color:black; background-color: silver;'>Silver  </option>
+            </select>
+            </div>
+    </div>
+
+    <!-- Output Line: Findind Value -->
+    <div class="row">
+        <div class="input-group">
+            <input readonly type="text" class="form-control w-auto" placeholder="XXXX" aria-describedby="basic-addon1" id="outputValue">
+            <div class="input-group-append">
+                <span class="input-group-text"> Ω </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 style="text-align: center;" class='mt-5'>This may be of help!</h3>
+<div class="text-center">
+    <img src="http://www.digikey.com/-/media/Images/Marketing/Resources/Calculator/resistor-color-chart.png?la=en-US&ts=4db603f5-4e9b-4759-84b7-21a04d18b1a8" class="rounded" alt="Source: Digikey">
+    <p style="text-align: center;">Source of image: Digikey</p>
+</div>
+
+{% endblock %}
