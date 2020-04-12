@@ -106,11 +106,19 @@ function sugest(mes_num) {
 }
 
 // Text to display with the color change
-function sugest_message(mes_num)
+function sugest_message(mes_num,flag)
 {   
     var texto = mes_num;
-    var intro4 = "Considering a 4 band color, you should use a resistor of " + texto + " Ohms";
-    var intro5 = "Considering a 5 band color, you should use a resistor of " + texto + " Ohms";
+    if (flag === -1)
+    {
+        var intro4 = "Considering a 4 band color...";
+        var intro5 = "Considering a 5 band color...";
+    }
+    else
+    {
+        var intro4 = "Considering a 4 band color, you should use a resistor of " + texto + " Ohms";
+        var intro5 = "Considering a 5 band color, you should use a resistor of " + texto + " Ohms";
+    }
 
     msg_4band.innerText = intro4;
     msg_5band.innerText = intro5;
@@ -149,11 +157,12 @@ function find_by_value() {
     {
         input_object.value = "";
         input_object.placeholder = "Please, input a good value like 1200 or 1.2k. PS: Values must be greater than or equal to 100";
+        sugest_message(sugested_value,result);
     }
     else
     {
         var sugested_value = sugest(result);
-        sugest_message(sugested_value);
+        sugest_message(sugested_value,result);
     }
     console.log("Value input: " + result.toString());
 }
